@@ -111,4 +111,8 @@ async def on_message(message):
     await bot.process_commands(message)
 
 # Run bot
-bot.run(os.environ.get('DISCORD_BOT_TOKEN'))
+token = os.environ.get('DISCORD_BOT_TOKEN')
+if not token:
+    print("ERROR: DISCORD_BOT_TOKEN not found!")
+    exit(1)
+bot.run(token)
